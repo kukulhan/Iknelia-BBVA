@@ -21,8 +21,24 @@ Resources:
           Properties:
             Path: /login
             Method: post
+  Amounts:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Amounts
+      Handler: APIamounts.amounts
+      Runtime: nodejs14.x
+      Events:
+        Amounts:
+          Type: Api
+          Properties:
+            Path: /amounts/{clientId}
+            Method: get
 Outputs:
   Login:
     Description: API Gateway endpoint URL for login
     Value:
       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/login/
+  Amounts:
+    Description: API Gateway endpoint URL for amounts
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/amounts/{clientId}
