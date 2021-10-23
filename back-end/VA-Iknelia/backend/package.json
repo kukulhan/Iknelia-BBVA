@@ -9,8 +9,11 @@
   "author": "iknelia team",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-lex-runtime-service": "^3.36.0",
     "aws-sdk": "2.737",
+    "es6-promisify": "^5.0.0",
     "express": "^4.17.1",
+    "node-fetch": "^2.6.2",
     "random-int": "^2.0.1",
     "request-json": "^0.6.5"
   }
