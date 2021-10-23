@@ -57,6 +57,27 @@ Resources:
           Properties:
             Path: /transaction/{clientId}
             Method: post
+  Lex:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Lex
+      Handler: Alexa.alexa
+      Runtime: nodejs14.x
+      Events:
+        Lex:
+          Type: AlexaSkill
+  ConsultaNombre:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ConsultaNombre
+      Handler: APIConsultaNombre.consultaNombre
+      Runtime: nodejs14.x
+      Events:
+        ConsultaNombre:
+          Type: Api
+          Properties:
+            Path: /consultanombre
+            Method: post
 Outputs:
   Login:
     Description: API Gateway endpoint URL for login
@@ -74,3 +95,7 @@ Outputs:
     Description: API Gateway endpoint URL for transaction
     Value:
       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/transaction
+  ConsultaNombre:
+    Description: API Gateway endpoint URL for consulta nombre(prueba amazon lex)
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/consultanombre

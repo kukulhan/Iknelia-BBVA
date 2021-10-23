@@ -59,6 +59,28 @@ Resources:
           Properties:
             Path: /transaction/{clientId}
             Method: post
+  Lex:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: Alexa.alexa
+      Runtime: nodejs14.x 
+      Events:
+        Lex:
+          Type: AlexaSkill # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+  ConsultaNombre:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APIConsultaNombre.consultaNombre
+      Runtime: nodejs14.x 
+      Events:
+        ConsultaNombre:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /consultanombre
+            Method: post
+
 
 Outputs:
   Login:
@@ -73,5 +95,8 @@ Outputs:
   Transaction:
     Description: "API Gateway endpoint URL for transaction"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/transaction"
+  ConsultaNombre:
+    Description: "API Gateway endpoint URL for consulta nombre(prueba amazon lex)"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/consultanombre"
 
 
