@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { LoginScreen } from '../screens/LoginScreen';
+import { NoAssistantView } from '../screens/NoAssistantView';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export const Navigation = () => {
             }}
         >
             <Stack.Screen name = 'Login' component = {LoginScreen}/>
+            <Stack.Screen name = 'NoAssistant' component = {NoAssistantView}/>
         </Stack.Navigator>
     );
 }
