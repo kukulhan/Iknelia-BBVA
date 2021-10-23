@@ -47,6 +47,18 @@ Resources:
           Properties:
             Path: /validatecontact/{clientId}/contact/{contactName}
             Method: get  
+  Transaction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APItransaction.transaction
+      Runtime: nodejs14.x 
+      Events:
+        Transaction:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /transaction/{clientId}
+            Method: post
 
 Outputs:
   Login:
@@ -58,5 +70,8 @@ Outputs:
   ValidateContact:
     Description: "API Gateway endpoint URL for validate contact"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/amounts/{clientId}/contact/{contactName}"
+  Transaction:
+    Description: "API Gateway endpoint URL for transaction"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/transaction"
 
 

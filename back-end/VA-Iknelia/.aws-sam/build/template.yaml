@@ -33,6 +33,30 @@ Resources:
           Properties:
             Path: /amounts/{clientId}
             Method: get
+  ValidateContact:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ValidateContact
+      Handler: APIvalidateContact.validateContact
+      Runtime: nodejs14.x
+      Events:
+        ValidateContact:
+          Type: Api
+          Properties:
+            Path: /validatecontact/{clientId}/contact/{contactName}
+            Method: get
+  Transaction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: Transaction
+      Handler: APItransaction.transaction
+      Runtime: nodejs14.x
+      Events:
+        Transaction:
+          Type: Api
+          Properties:
+            Path: /transaction/{clientId}
+            Method: post
 Outputs:
   Login:
     Description: API Gateway endpoint URL for login
@@ -42,3 +66,11 @@ Outputs:
     Description: API Gateway endpoint URL for amounts
     Value:
       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/amounts/{clientId}
+  ValidateContact:
+    Description: API Gateway endpoint URL for validate contact
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/amounts/{clientId}/contact/{contactName}
+  Transaction:
+    Description: API Gateway endpoint URL for transaction
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/iknelia/transaction
