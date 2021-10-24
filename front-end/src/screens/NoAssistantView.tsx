@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { noAssistantTheme } from '../themes/noAssistantTheme'
+import { noAssistantTheme } from '../themes/noAssistantTheme';
 
 const transferenciaIcon = require('../assets/images/pages/transferencia2.png');
 const recargaIcon = require('../assets/images/pages/recarga2.png');
