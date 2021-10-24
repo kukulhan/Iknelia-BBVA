@@ -80,6 +80,18 @@ Resources:
           Properties:
             Path: /consultanombre
             Method: post
+  AlexIknelia:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APIAlexaIknelia.alexaIknelia
+      Runtime: nodejs14.x 
+      Events:
+        AlexIknelia:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /alexiknelia
+            Method: post
 
 
 Outputs:
@@ -98,5 +110,8 @@ Outputs:
   ConsultaNombre:
     Description: "API Gateway endpoint URL for consulta nombre(prueba amazon lex)"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/consultanombre"
+  AlexIknelia:
+    Description: "API Gateway endpoint URL for excecute alex"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/alexiknelia"
 
 
