@@ -44,7 +44,7 @@ nube, pero esto no es problema gracias a **AWS Data Transfer**, pues nos ayuda a
 poder tener corriendo nuestras Lambdas en una región y poder consultar datos en
 otra de forma transparente para el cliente.
 
-## Arquitectura Amazon Web Services Iknelia
+## Arquitectura Amazon Web Services sobre el equipo de Iknelia
 # ![kukulhan](/sources/arquitectura2.png)
 
 En nuestro equipo de desarrolladores nos era necesario poder trabajar sobre los mismos
