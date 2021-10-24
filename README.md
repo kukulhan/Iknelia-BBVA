@@ -74,3 +74,7 @@ AWS.
 * CSS
 * NodeJS
 
+## ¿Cuáles son los siguentes pasos?
+- [ ] Integrar más funcionalides similares a la app de BBVA realiza actualmente.
+- [ ] Integrar el asesoramiento sobre la salud financiera de los usuarios.
+- [ ] De acuerdo a su transaccionalidad, el amigo virtual pueda ofertar productos en el momento adecuado con un efecto ¡Woou!
