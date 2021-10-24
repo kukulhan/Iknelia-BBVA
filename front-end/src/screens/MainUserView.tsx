@@ -7,7 +7,7 @@ import Tts from 'react-native-tts';
 import { useGetAmount } from '../hooks/useGetAmount';
 import { useDeleteSession } from '../hooks/useDeleteSession';
 import awsLexAPI from "../api/lexAPI"
-import awsLexIkneliaAPI from '../api/lexInleliaAPI';
+import awsLexIkneliaAPI from '../api/lexInleliaAPi';
 
 
 Tts.setDefaultLanguage('es-MX');
