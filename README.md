@@ -43,3 +43,6 @@ o posibles errores que se presenten en las ejecuciones de nuestras Lambdas.
 nube, pero esto no es problema gracias a **AWS Data Transfer**, pues nos ayuda a
 poder tener corriendo nuestras Lambdas en una región y poder consultar datos en
 otra de forma transparente para el cliente.
+
+## Arquitectura AWS Iknelia
+# ![kukulhan](/sources/arquitectura2.png)
