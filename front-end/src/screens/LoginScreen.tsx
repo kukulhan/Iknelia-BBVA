@@ -8,6 +8,11 @@ import { useLogin } from '../hooks/useLogin';
 import { StackScreenProps } from '@react-navigation/stack';
 import {useState} from 'react';
 
+
+interface Props extends StackScreenProps<any, any>{
+    isOn: boolean
+};
+
 export const LoginScreen = ({navigation}:Props) => {
 
     const [isEnable, setIsEnable] = useState(false);
@@ -82,4 +87,3 @@ export const LoginScreen = ({navigation}:Props) => {
         </>
     )
 }
-
