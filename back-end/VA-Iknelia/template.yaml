@@ -92,6 +92,42 @@ Resources:
           Properties:
             Path: /alexiknelia
             Method: post
+  DeleteSession:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APIDeleteSession.deleteSession
+      Runtime: nodejs14.x 
+      Events:
+        DeleteSession:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /deletesession/{clientId}
+            Method: delete
+  PutSession:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APIPutSession.putSession
+      Runtime: nodejs14.x 
+      Events:
+        PutSession:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /putsession
+            Method: put
+  GetSession:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APIGetSession.getSession
+      Runtime: nodejs14.x 
+      Events:
+        GetSession:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /getsession/{clientId}
+            Method: get
 
 
 Outputs:
@@ -113,5 +149,15 @@ Outputs:
   AlexIknelia:
     Description: "API Gateway endpoint URL for excecute alex"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/alexiknelia"
+  DeleteSession:
+    Description: "API Gateway endpoint URL for delete session  Alexa "
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/deletesession/{clientId}"
+  PutSession:
+    Description: "API Gateway endpoint URL for Put Alexa session"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/putsession"
+  GetSession:
+    Description: "API Gateway endpoint URL for Get Alexa session"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getsession/{clientId}"
+
 
 
