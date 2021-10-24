@@ -9,6 +9,21 @@ module.exports.dialog=  function(intentRequest, callback){
     //var userId=intentRequest.userId;
     var userId="12345678"
 
+
+    if (slots.slotAmount !== null && intentRequest.inputTranscript.includes(slots.slotAmount)) {
+        return exeDinamoDB.getAmount(userId).then(item=>{
+            if(parseInt(item.Item.tddAmount)>=parseInt(slots.slotAmount)){
+                mensaje=`Se le hara una trasnferencia a ${slots.slotName} por la cantidad de ${slots.slotAmount}. ¿Deseas continuar?`
+                return callback(responseLex.confirmIntent(sessionAttributes,intentRequest.currentIntent.name,slots,mensaje));
+            }
+            else{
+                slots.slotAmount=null;
+                mensaje="No cuentas con saldo suficiente, elige otro monto"
+                return callback(responseLex.elicitSlot(sessionAttributes, intentName, slots, 'slotAmount',mensaje));
+            } 
+        })
+    }
+
     if (slots.slotCorrectContact !== null && intentRequest.inputTranscript.includes(slots.slotCorrectContact) && intentRequest.currentIntent.confirmationStatus !== 'Confirmed' ) {
         if(slots.slotCorrectContact==="no"){
             mensaje=`Quedo al pendiente de su siguiente instruccion`
@@ -59,5 +74,8 @@ module.exports.dialog=  function(intentRequest, callback){
     if(!slots.slotCorrectAmount && !slots.slotAmount && !slots.slotCorrectContact && !slots.slotChooseName && !slots.slotName ){
         callback(responseLex.delegate(sessionAttributes, slots));
     }
+    if (intentRequest.currentIntent.confirmationStatus === 'Confirmed' || intentRequest.currentIntent.confirmationStatus === 'Denied'){
+        callback(responseLex.delegate(sessionAttributes, slots));
+    } 
 
 }

@@ -44,6 +44,7 @@ module.exports.getAmount=async function(clientId)
 
 ///////////////////////////////////////////////////
 /////////////////////////////////////////////////////
+
 module.exports.postTransaction=async function(clientId,transferAmount)
 {
   const options={year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'numeric',second:'numeric' }
@@ -57,7 +58,10 @@ module.exports.postTransaction=async function(clientId,transferAmount)
       accountType:"tdd",
 
   }
-
+  jsonBody["date"]=date.toLocaleDateString("es-MX",options);
+  jsonBody["dateSamll"]=date.toLocaleDateString("es-MX");
+  jsonBody["transactionId"]=randomString(20);
+  let accountType = jsonBody.accountType==="tdc"?"movementsTDC":"movementsTDD";
     var params = {
          TableName: table.iknelia_movements, 
          Key: { "clientId":clientId },
@@ -71,7 +75,83 @@ module.exports.postTransaction=async function(clientId,transferAmount)
            ':empty_list': []
          }
       }; 
- 
+    try {
+
       const updateAsync= promisify(docClient.update,docClient);
 
+      return updateAsync(params).then(response=>{return response});
+ 
+    } catch (err) { 
+      console.log(err);
+      return err
+    }
 }
+
+module.exports.postTransactionAmout=async function(clientId,transferAmount,currentAmount,account,contact)
+{
+
+  console.log("SE MODIFICA LA FECHA********###")
+  const options={year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'numeric',second:'numeric',timeZone:'America/Mexico_City'}
+  const date=new Date();
+  console.log("SE MODIFICA LA FECHA********###")
+  console.log("SE MODIFICA LA FECHA********###")
+  console.log("SE MODIFICA LA FECHA********###")
+  console.log("SE MODIFICA LA FECHA********###")
+  let jsonBody=
+  {
+      amount:transferAmount,
+      concept:"Transferencia",
+      accountType:"tdd",
+      account:account,
+      contact:contact
+  }
+  jsonBody["transactionId"]=randomString(20);
+  jsonBody["date"]=date.toLocaleDateString("es-MX",options);
+  jsonBody["dateSamll"]=date.toLocaleString('en-US',{timeZone:'America/Mexico_City'})
+
+  let accountType = jsonBody.accountType==="tdc"?"movementsTDC":"movementsTDD";
+    var params_ = {
+         TableName: table.iknelia_movements, 
+         Key: { "clientId":clientId },
+         ReturnValues: 'ALL_NEW',
+         UpdateExpression: 'set #accountType = list_append(if_not_exists(#accountType, :empty_list), :transaction)',
+         ExpressionAttributeNames: {
+           '#accountType': accountType
+         },
+         ExpressionAttributeValues: {
+           ':transaction': [jsonBody],
+           ':empty_list': []
+         }
+      }; 
+  let tddAmount=parseInt(currentAmount)-parseInt(transferAmount);
+    var params = {
+         TableName: table.iknelia_amounts, 
+         Key: { "clientId":clientId }, 
+         UpdateExpression: 'SET #tddAmount=:transaction',
+         ExpressionAttributeNames: {
+           '#tddAmount': "tddAmount"
+         },
+         ExpressionAttributeValues: {
+           ':transaction':tddAmount
+         }
+      }; 
+    try {
+      const updateAsync= promisify(docClient.update,docClient);
+      updateAsync(params_).then(response=>{return response});
+      return updateAsync(params).then(response=>{return response});
+    } catch (err) { 
+      console.log(err);
+      return err
+    }
+}
+
+
+function randomString(len) {
+  var p = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  return [...Array(len)].reduce(a=>a+p[~~(Math.random()*p.length)],'');
+}
+
+
+
+
+
