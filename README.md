@@ -1,3 +1,3 @@
 # Iknelia-BBVA
 # ![kukulhan](/sources/logo.png)
-Este repositorio es donde plantemos la solucion de un asistente virtual financiero para el reto de la SuperApp en el Hackaton de BBVA 2021
+La crisis sanitaria del SARS-Cov2 detonó y aceleró el uso de la tecnología en diversos sectores, tales como la educación a distancia, el trabajo remoto, la agilización de servicios a domicilio, entre otros. Sin embargo, la banca digital en México presenció una transformación de servicio a necesidad; pues el confinamiento motivó e incrementó el uso de operaciones financieras vía remota, al simplemente abrir una cuenta desde una super App. Estas nuevas prácticas de los usuarios mexicanos propició que diversas instituciones bancarias invirtieran e innovaran en sus tecnologías. Dejando entrever que bajo el contexto tecnológico financiero, es fundamental estar a la vanguardia en el sector digital. 
