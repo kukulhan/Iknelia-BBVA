@@ -5,4 +5,11 @@ Gracias a la presencia de los múltiples asistentes de voz  en la cotidianidad d
 
 ## Nuestra motivación
 
-En la actualidad, la sociedad ha prestado particular interés en la vivencia de experiencias disruptivas que les permitan descubrir un nuevo estilo de vida. Razón por la cual, múltiples empresas han enfocado sus esfuerzos en la oferta de éstas. Iknelia se suma a esta tendencia, volviéndose pionero en el sector de experiencias financieras; siendo nuestro valor agregado la   confidencialidad, confianza y fraternidad con nuestros usuarios, mismo que aportamos a través de un amigo financiero virtual.  El cual es capaz de aconsejar y/o asesorar la  salud financiera de  los usuarios, a través de las transacciones realizadas en la banca; utilizando únicamente la super App BBVA, sin tener que recurrir a terceros. 
+En la actualidad, la sociedad ha prestado particular interés en la vivencia de experiencias disruptivas que les permitan descubrir un nuevo estilo de vida. Razón por la cual, múltiples empresas han enfocado sus esfuerzos en la oferta de éstas. Iknelia se suma a esta tendencia, volviéndose pionero en el sector de experiencias financieras; siendo nuestro valor agregado la confidencialidad, confianza y fraternidad con nuestros usuarios, mismo que aportamos a través de un amigo financiero virtual con el que podamos platicar de manera natural y poder preguntarle o indicarle que realice alguna transacción financiera y que nos acompañe en nuestro journey del día a día.
+
+
+## Nuestra misión
+
+Iknelia no se limita a un target particular, pues gracias a su inclusividad, permite que cualquier persona pueda utilizar el asistente financiero a través de un comando de voz. Siendo únicamente necesario emplear un teclado, al registrar las credenciales para ingresar a la banca digital. 
+
+Nuestros indicadores de éxito consistirán en el monitoreo de clientes que estén dispuestos a vivir  esta experiencia. Mismos que fidelizamos a través de la apertura de nuevos productos financieros y   los consejos y/o asesorías  brindadas. 
