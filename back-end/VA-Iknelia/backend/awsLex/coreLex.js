@@ -79,3 +79,20 @@ module.exports.dialog=  function(intentRequest, callback){
     } 
 
 }
+
+module.exports.confirm = function(intentRequest, callback){
+    var sessionAttributes = intentRequest.sessionAttributes;
+    var slots = intentRequest.currentIntent.slots;
+    //var userId=intentRequest.userId;
+    var userId="12345678";  
+    if (intentRequest.currentIntent.confirmationStatus === 'Confirmed'){
+        exeDinamoDB.getAmount(userId).then(currentAmount=>{
+            exeDinamoDB.postTransactionAmout(userId,slots.slotAmount,currentAmount.Item.tddAmount,currentAmount.Item.account,slots.slotName).then(()=>{console.log("botTransferSuccess")})
+        })
+        mensaje=`Su ha ejecutado exitosamente. Quedo al pendiente de su siguiente instruccion`
+        callback(responseLex.close(sessionAttributes,'Fulfilled',mensaje) );
+    } else {
+        mensaje=`No he realizado la operacion. Quedo al pendiente de su siguiente instruccion`
+        callback(responseLex.close(sessionAttributes,'Fulfilled',mensaje) );
+    }
+}

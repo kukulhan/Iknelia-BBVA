@@ -22,3 +22,28 @@ return {
 };
 
 
+module.exports.close =  function(sessionAttributes, fulfillmentState, messagecontentContent) {
+  return {
+    sessionAttributes,
+    dialogAction: {
+      type: 'Close',
+      fulfillmentState,
+      message:{ contentType: 'PlainText', content: messagecontentContent }
+    }
+  };
+  };
+  
+  
+  module.exports.confirmIntent =  function(sessionAttributes, intentName, slots, messagecontentContent) {
+  return {
+    sessionAttributes,
+    dialogAction: {
+      type: 'ConfirmIntent',
+      intentName,
+      slots,
+      message:{ contentType: 'PlainText', content: messagecontentContent }
+    }
+  };
+  };
+
+

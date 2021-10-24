@@ -6,5 +6,7 @@ module.exports =  function(intentRequest, callback){
     if(intentName === 'intentTransfer' ){
         return orderTransfer(intentRequest, callback);
     }
-
+    if(intentName === 'intentHistory'){
+        return orderHistory(intentRequest, callback);
+    }
 }

@@ -1,19 +1,20 @@
-const coreLex = require('./coreLex')
+const coreHistory = require('./coreHistory')
 
 module.exports = async function(intentRequest, callback){
     
     const source = intentRequest.invocationSource;
     
     if (source === 'DialogCodeHook'){
-        console.log("####ENTRA DIALOGCODEHOOK####");
+        console.log("####ENTRA DIALOGCODEHOOK HISTORY####");
         console.log(JSON.stringify(intentRequest, null, 3));
-        coreLex.dialog(intentRequest, callback);
+        coreHistory.dialog(intentRequest, callback);
     }
 
+    
     if (source === 'FulfillmentCodeHook') {
-        console.log("####ENTRA FULFILLMENTCODEHOOK####");
+        console.log("####ENTRA FULFILLMENTCODEHOOK HISTORY####");
         console.log(JSON.stringify(intentRequest, null, 3));
-         coreLex.confirm(intentRequest,callback);
+        coreHistory.confirm(intentRequest,callback);
       }
     
 }
