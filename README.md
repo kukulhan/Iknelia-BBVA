@@ -14,7 +14,7 @@ Iknelia no se limita a un target particular, pues gracias a su inclusividad, per
 
 Nuestros indicadores de éxito consistirán en el monitoreo de clientes que estén dispuestos a vivir  esta experiencia. Mismos que fidelizamos a través de la apertura de nuevos productos financieros y los consejos y/o asesorías  brindadas. 
 
-## Demostracion del proyecto
+## Demostracion del proyecto - Youtube
 
 [![](https://img.youtube.com/vi/vYnxNKiC6x8/0.jpg)](https://www.youtube.com/watch?v=vYnxNKiC6x8)
 
