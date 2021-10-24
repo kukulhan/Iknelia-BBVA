@@ -13,3 +13,6 @@ En la actualidad, la sociedad ha prestado particular interés en la vivencia de 
 Iknelia no se limita a un target particular, pues gracias a su inclusividad, permite que cualquier persona pueda utilizar el asistente financiero a través de un comando de voz. Siendo únicamente necesario emplear un teclado, al registrar las credenciales para ingresar a la banca digital. 
 
 Nuestros indicadores de éxito consistirán en el monitoreo de clientes que estén dispuestos a vivir  esta experiencia. Mismos que fidelizamos a través de la apertura de nuevos productos financieros y   los consejos y/o asesorías  brindadas. 
+
+## Arquitectura de la aplicación de Iknelia
+# ![kukulhan](/sources/arquitectura.png)
