@@ -46,3 +46,22 @@ otra de forma transparente para el cliente.
 
 ## Arquitectura AWS Iknelia
 # ![kukulhan](/sources/arquitectura2.png)
+
+En nuestro equipo de desarrolladores nos era necesario poder trabajar sobre los mismos
+servicios de AWS para poder aprovechar el tiempo en este reto, esto nos llevó a utilizar el
+servicio de **AWS Organizations** el cual nos permite poder gestionar y compartir los
+servicios de AWS entre nosotros.
+Una vez teniendo nuestra organización, necesitábamos crear usuarios, para esto nos
+apoyamos en el servicio de **AWS IAM** con el cual pudimos utilizar usuarios y grupos de
+usuarios para los diferentes servicios que estamos utilizando. AWS IAM también nos ayuda
+a crear roles y políticas de seguridad para que los usuarios sólo tuvieran acceso a los
+componentes que realmente iban a estar trabajando y no a todos los servicios disponibles.
+Lamentablemente uno de nuestros miembros del del equipo no cuenta con una buena
+computadora, y nos dimos cuenta de otra bondad de AWS, el **AWS Cloud9**, este servicio
+nos ayuda a poder programar y deployar nuestros lambdas sin la necesidad de instalar
+nada ya que es una herramienta web que podemos utilizar en cualquier navegador. Con
+esta herramienta también estamos utilizando otros servicios, como son el **AWS ECS** y **AWS S3**, 
+en donde estamos creando una instancia y se despliega nuestro entorno virtual de
+desarrollo. También nos ayudamos del **AWS VPC**, el cual nos ayuda a crear una red privada
+virtual la cual nos ayuda a poder conectarnos con internet y con los demás servicios de
+AWS.
