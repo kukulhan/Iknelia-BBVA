@@ -65,3 +65,12 @@ en donde estamos creando una instancia y se despliega nuestro entorno virtual de
 desarrollo. También nos ayudamos del **AWS VPC**, el cual nos ayuda a crear una red privada
 virtual la cual nos ayuda a poder conectarnos con internet y con los demás servicios de
 AWS.
+
+## Implementacion de otras tecnologías
+
+* React Native - Android
+* JavaScript
+* TypeScript
+* CSS
+* NodeJS
+
