@@ -14,7 +14,7 @@ Iknelia no se limita a un target particular, pues gracias a su inclusividad, per
 
 Nuestros indicadores de éxito consistirán en el monitoreo de clientes que estén dispuestos a vivir  esta experiencia. Mismos que fidelizamos a través de la apertura de nuevos productos financieros y los consejos y/o asesorías  brindadas. 
 
-## Arquitectura de la aplicación de Iknelia
+## Arquitectura de la aplicación de Iknelia en Amazon Web Services
 # ![kukulhan](/sources/arquitectura.png)
 
 La arquitectura la visualizamos de la siguiente manera:
