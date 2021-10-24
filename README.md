@@ -16,3 +16,30 @@ Nuestros indicadores de éxito consistirán en el monitoreo de clientes que est�
 
 ## Arquitectura de la aplicación de Iknelia
 # ![kukulhan](/sources/arquitectura.png)
+
+La arquitectura la visualizamos de la siguiente manera:
+1. Para el Front-End, estamos utilizando el framework React Native, el cual nos
+permite construir aplicaciones para dispositivos móviles basados en javascript.
+2. Esta aplicación se conecta mediante un AWS API Gateway, el cual es nuestro canal
+de comunicación con el Back-End.
+3. Estas APIs se conectan a un AWS Lambda que corre código NodeJS. Estamos
+desacoplando funcionalidades al utilizar las APIs ya que cada una de estas cumple
+una funcionalidad en especifico.
+4. AWS Lex es nuestro “gran orquestador”, nos ayudamos de él para poder realizar
+todas las peticiones del usuario, como realizar una trasferencia, solicitar el historial
+de movimientos, etc. Para poder realizar todas estas operaciones, Amazon Lex está
+asociado a un lambda el cual tiene toda la lógica de la orquestación de los intentos
+que el usuario pueda solicitar.
+5. Tanto las Lambdas de las APIs como la Lambda de AWS Lex, se conectan a AWS
+DynamoDB, para poder solicitar y/o guardar información referente a las peticiones
+del cliente.
+6. Nuestro motor Back-End está funcionando en un proyecto Lambda el cual estamos
+desplegando en AWS CloudFormation, el cual nos ayuda a tener agrupada nuestra
+Lambda con todos sus funcionalidades que ésta tiene.
+7. Es importante tener un control sobre el funcionamiento de nuestro Back-End, es por
+eso que nos apoyamos de AWS CloudWatch para poder monitorear las ejecuciones
+o posibles errores que se presenten en las ejecuciones de nuestras Lambdas.
+8. En AWS no están disponibles ciertas funcionalidades en ciertas regiones de la
+nube, pero esto no es problema gracias a AWS Data Transfer, pues nos ayuda a
+poder tener corriendo nuestras Lambdas en una región y poder consultar datos en
+otra de forma transparente para el cliente.
