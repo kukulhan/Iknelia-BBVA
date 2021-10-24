@@ -14,6 +14,11 @@ Iknelia no se limita a un target particular, pues gracias a su inclusividad, per
 
 Nuestros indicadores de éxito consistirán en el monitoreo de clientes que estén dispuestos a vivir  esta experiencia. Mismos que fidelizamos a través de la apertura de nuevos productos financieros y los consejos y/o asesorías  brindadas. 
 
+## Demostracion del proyecto
+
+[![](https://img.youtube.com/vi/vYnxNKiC6x8/0.jpg)](https://www.youtube.com/watch?v=vYnxNKiC6x8)
+
+
 ## Arquitectura de la aplicación de Iknelia en Amazon Web Services
 # ![kukulhan](/sources/arquitectura.png)
 
@@ -78,3 +83,4 @@ AWS.
 - [ ] Integrar más funcionalides similares a la app de BBVA realiza actualmente.
 - [ ] Integrar el asesoramiento sobre la salud financiera de los usuarios.
 - [ ] De acuerdo a su transaccionalidad, el amigo virtual pueda ofertar productos en el momento adecuado con un efecto ¡Woou!
+
