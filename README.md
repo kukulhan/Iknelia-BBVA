@@ -18,6 +18,11 @@ Nuestros indicadores de éxito consistirán en el monitoreo de clientes que est�
 
 [![](https://img.youtube.com/vi/vYnxNKiC6x8/0.jpg)](https://www.youtube.com/watch?v=vYnxNKiC6x8)
 
+## Marco de trabajo - Agile
+
+# ![kukulhan](/sources/trello.png)
+
+Nosotros estuvimos trabajando con la metodologia Agile en la que nos empezamos a dividir en diversas tareas especificas para iniciar el proyecto.
 
 ## Arquitectura de la aplicación de Iknelia en Amazon Web Services
 # ![kukulhan](/sources/arquitectura.png)
