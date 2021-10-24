@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { SuccessfulTransferTheme } from '../themes/successfulTransferTheme';
 import { useState, useEffect, useRef } from 'react';
-//import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { StackScreenProps } from '@react-navigation/stack';
 
 interface Props extends StackScreenProps<any, any> { };
@@ -60,6 +60,11 @@ export const SuccessfulTransferView = ({ navigation }: Props) => {
                 <Text style={SuccessfulTransferTheme.conceptInf}>0000</Text>
             </View>
             <TouchableOpacity  style={SuccessfulTransferTheme.backButtom} onPress={goToHome}>
+                <Icon
+                    color='#044483'
+                    name='arrow-back-outline'
+                    size={45}
+                />
             </TouchableOpacity>
         </View>
     )

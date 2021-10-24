@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { View, Text, Image, TouchableOpacity, SectionList, Button } from 'react-native';
 import { HeaderTitle } from '../components/HeaderTitle';
 import { historyStyles } from '../themes/historyTheme';
-import Icon from 'react-native-vector-icons/Ionicons;
+import Icon from 'react-native-vector-icons/Ionicons'
 import { StackScreenProps } from '@react-navigation/stack';
 import Tts from 'react-native-tts';
 
