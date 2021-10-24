@@ -19,8 +19,8 @@ async function lex(event) {
 
 	var lexruntime = new AWS.LexRuntime();
 	var params = {
-		botAlias: "iknelia",
-		botName: "botTransfer",
+		botAlias: "ikneliaAlias",
+		botName: "botIknelia",
 		inputText: mensajeSA,
 		userId: user,
 		sessionAttributes: { 

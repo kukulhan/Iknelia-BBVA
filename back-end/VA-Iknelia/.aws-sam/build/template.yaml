@@ -126,6 +126,30 @@ Resources:
           Properties:
             Path: /getsession/{clientId}
             Method: get
+  GetLastTransaction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: GetLastTransaction
+      Handler: APIGetLastTransaction.getLastTransaction
+      Runtime: nodejs14.x
+      Events:
+        GetLastTransaction:
+          Type: Api
+          Properties:
+            Path: /getlasttransaction/{clientId}
+            Method: get
+  GetTransactions:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: GetTransactions
+      Handler: APIGetTransactions.getTransactions
+      Runtime: nodejs14.x
+      Events:
+        GetTransactions:
+          Type: Api
+          Properties:
+            Path: /gettransactions/{clientId}/date/{date}
+            Method: get
 Outputs:
   Login:
     Description: API Gateway endpoint URL for login
@@ -163,3 +187,11 @@ Outputs:
     Description: API Gateway endpoint URL for Get Alexa session
     Value:
       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getsession/{clientId}
+  GetLastTransaction:
+    Description: API Gateway endpoint URL for get last transaction
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getlasttransaction/{clientId}
+  GetTransactions:
+    Description: API Gateway endpoint URL for get all from an specific date
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/gettransactions/{clientId}/date/{date}
