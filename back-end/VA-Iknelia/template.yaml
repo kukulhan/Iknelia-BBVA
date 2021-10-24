@@ -128,6 +128,32 @@ Resources:
           Properties:
             Path: /getsession/{clientId}
             Method: get
+  GetLastTransaction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APIGetLastTransaction.getLastTransaction
+      Runtime: nodejs14.x 
+      Events:
+        GetLastTransaction:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /getlasttransaction/{clientId}
+            Method: get
+  GetTransactions:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: backend/
+      Handler: APIGetTransactions.getTransactions
+      Runtime: nodejs14.x 
+      Events:
+        GetTransactions:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /gettransactions/{clientId}/date/{date}
+            Method: get
+
+
 
 
 Outputs:
@@ -158,6 +184,13 @@ Outputs:
   GetSession:
     Description: "API Gateway endpoint URL for Get Alexa session"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getsession/{clientId}"
+  GetLastTransaction:
+    Description: "API Gateway endpoint URL for get last transaction"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/getlasttransaction/{clientId}"
+  GetTransactions:
+    Description: "API Gateway endpoint URL for get all from an specific date"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/gettransactions/{clientId}/date/{date}"
+ 
 
 
 
