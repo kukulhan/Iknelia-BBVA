@@ -42,3 +42,36 @@ module.exports.getAmount=async function(clientId)
 
 
 
+///////////////////////////////////////////////////
+/////////////////////////////////////////////////////
+module.exports.postTransaction=async function(clientId,transferAmount)
+{
+  const options={year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'numeric',second:'numeric' }
+  const date=new Date();
+  
+
+  let jsonBody=
+  {
+      amount:transferAmount,
+      concept:"Transferencia",
+      accountType:"tdd",
+
+  }
+
+    var params = {
+         TableName: table.iknelia_movements, 
+         Key: { "clientId":clientId },
+         ReturnValues: 'ALL_NEW',
+         UpdateExpression: 'set #accountType = list_append(if_not_exists(#accountType, :empty_list), :transaction)',
+         ExpressionAttributeNames: {
+           '#accountType': accountType
+         },
+         ExpressionAttributeValues: {
+           ':transaction': [jsonBody],
+           ':empty_list': []
+         }
+      }; 
+ 
+      const updateAsync= promisify(docClient.update,docClient);
+
+}
