@@ -6,7 +6,7 @@ AWS.config.update({
 	secretAccessKey: 'tRAJe1BDO/pMNgoie1NZiOnfcx4puCe/SzstT/np',
 	region: 'us-west-2'
 });
-async function getSS(event) {
+async function deleteSS(event) {
 	const { pathParameters } = event;
 	const { clientId } = pathParameters; 
 
@@ -14,28 +14,25 @@ async function getSS(event) {
 	var params = {
 		botAlias: "ikneliaAlias",
 		botName: "botIknelia",
-		userId: clientId,
+		userId: clientId
 	};
-
-	return await lexruntime.getSession(params).promise().then(response => {
+	return await lexruntime.deleteSession(params).promise().then(response => {
 			console.log("SESSION " + JSON.stringify(response))
 			return response
 	}).catch(e => {
 		let error=JSON.parse(JSON.stringify(e));
-		error["statusCode"]='404'
+		error["statusCode"]='500'
 		return error;
 	});
-	
-
 }
 
 
-exports.getSession = async (event, context) => {
+exports.deleteSession = async (event, context) => {
 
 	try {
-		const data = await getSS(event);
-		if(data.statusCode==='404'){
-			response = { statusCode: 404, body: JSON.stringify(data)};
+		const data = await deleteSS(event);
+		if(data.statusCode==='500'){
+			response = { statusCode: 500, body: JSON.stringify(data)};
 		}
 		else{
 			response = { statusCode: 200, body: JSON.stringify(data)};
@@ -46,7 +43,6 @@ exports.getSession = async (event, context) => {
 
 		//callback(e);
 		console.log(e);
-		response = { statusCode: 500, body: data};
 		return response;
 	}
 
